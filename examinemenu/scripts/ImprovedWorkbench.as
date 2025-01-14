@@ -254,6 +254,13 @@ package
             return;
          }
          isUIinit = true;
+         if(Boolean(Config.uiConfig.hideVignette))
+         {
+            if(getQualifiedClassName(_examineMenu.getChildAt(1)) == "flash.display::MovieClip")
+            {
+               _examineMenu.getChildAt(1).visible = false;
+            }
+         }
          if(Boolean(Config.uiConfig.hideBackground))
          {
             _examineMenu.CenterShadedBG_mc.visible = false;
@@ -359,6 +366,27 @@ package
          _examineMenu.PerkPanel0_mc.alpha = 1;
          _examineMenu.PerkPanel1_mc.alpha = 1;
          _examineMenu.displayError("UI Config initialized!");
+         if(Config.debugChildren)
+         {
+            var i:int = 0;
+            while(i < _examineMenu.numChildren)
+            {
+               _examineMenu.displayError(i + ":" + getQualifiedClassName(_examineMenu.getChildAt(i)));
+               if(i == Config.uiConfig.testId)
+               {
+                  if(_examineMenu.getChildAt(i).visible != null && _examineMenu.getChildAt(i).visible != undefined)
+                  {
+                     _examineMenu.getChildAt(i).visible = false;
+                     _examineMenu.displayError("alpha set");
+                  }
+                  else
+                  {
+                     _examineMenu.displayError("alpha not set");
+                  }
+               }
+               i++;
+            }
+         }
       }
       
       public function mapInventory(event:*) : void
