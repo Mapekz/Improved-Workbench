@@ -19,7 +19,7 @@ package
       
       private static const MAX_CRAFTABLE:uint = 255;
       
-      public static const VERSION:String = "1.6.3";
+      public static const VERSION:String = "1.6.4";
       
       public static const MOD_NAME:String = "ImprovedWorkbench";
       
@@ -603,13 +603,22 @@ package
          while(i < event.data.InventoryList.length)
          {
             var item:* = event.data.InventoryList[i];
-            if(inventoryCounts[item.text] > 0)
+            var parts:* = item.text.split("x");
+            if(/.+x[0-9]+/.test(item.text))
             {
-               inventoryCounts[item.text] += item.count;
+               var itemText:String = item.text.replace(/\s*x[0-9]+/,"");
             }
             else
             {
-               inventoryCounts[item.text] = item.count;
+               itemText = item.text;
+            }
+            if(inventoryCounts[itemText] > 0)
+            {
+               inventoryCounts[itemText] += item.count;
+            }
+            else
+            {
+               inventoryCounts[itemText] = item.count;
             }
             i++;
          }
@@ -626,10 +635,10 @@ package
          var i:int = 0;
          while(i < _examineMenu.InventoryBase_mc.InventoryList_mc.entryList.length)
          {
-            var text:String = _examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text;
-            if(inventoryCounts[text] > 0)
+            var count:* = inventoryCounts[_examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text.replace(/\s*x[0-9]+/,"")];
+            if(count > 0)
             {
-               _examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text += " (" + inventoryCounts[text] + ")";
+               _examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text += " (" + count + ")";
             }
             i++;
          }
