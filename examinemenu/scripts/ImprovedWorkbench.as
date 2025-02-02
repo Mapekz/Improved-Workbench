@@ -333,7 +333,6 @@ package
             return;
          }
          this.initPerkCardsTextField();
-         this.perkCards_tf.text = "";
          var i:int = 0;
          while(i < PerksUIData.perkCardDataA.length)
          {
@@ -372,9 +371,15 @@ package
          }
          var applyFormats:* = [];
          var currentLineStartIndex:int = 0;
+         this.perkCards_tf.text = _config.perkCardsConfig.headerText || "";
+         if(this.perkCards_tf.text.length > 0)
+         {
+            this.perkCards_tf.text += "\n";
+         }
          i = 0;
          while(i < _config.perkCardsConfig.perkCards.length)
          {
+            currentLineStartIndex = this.perkCards_tf.text.length;
             if(perkCardsData[_config.perkCardsConfig.perkCards[i]] != null)
             {
                if(!_config.perkCardsConfig.showOnlyUnequipped)
@@ -402,12 +407,12 @@ package
                   });
                }
             }
-            currentLineStartIndex = this.perkCards_tf.text.length;
             i++;
          }
          i = 0;
          while(i < _config.perkCardsConfig.legendaryPerkCards.length)
          {
+            currentLineStartIndex = this.perkCards_tf.text.length;
             if(perkCardsData[_config.perkCardsConfig.legendaryPerkCards[i]] != null)
             {
                if(!_config.perkCardsConfig.showOnlyUnequipped)
@@ -435,7 +440,6 @@ package
                   });
                }
             }
-            currentLineStartIndex = this.perkCards_tf.text.length;
             i++;
          }
          i = 0;
