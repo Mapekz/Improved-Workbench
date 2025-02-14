@@ -290,22 +290,31 @@ package
          {
             _examineMenu.displayError("entries: " + toString(_examineMenu.ItemCardList_mc.InfoObj));
          }
+         if(_examineMenu.repairKitCount < 1)
+         {
+            _examineMenu.displayError("AutoRepairKit cancelled: no repair kits!");
+            return;
+         }
          var i:int = _examineMenu.ItemCardList_mc.InfoObj.length - 1;
          while(i >= 0)
          {
             if(_examineMenu.ItemCardList_mc.InfoObj[i].text == "$health")
             {
-               if(_examineMenu.ItemCardList_mc.InfoObj[i].currentHealth / _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth <= AutoUseRepairKitConditionBelow)
+               if(100 * _examineMenu.ItemCardList_mc.InfoObj[i].currentHealth / _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth <= AutoUseRepairKitConditionBelow)
                {
-                  _examineMenu.displayError("Using repair kit, durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " <= " + AutoUseRepairKitConditionBelow);
+                  _examineMenu.displayError("AutoRepairKit: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " <= " + AutoUseRepairKitConditionBelow);
                }
                else
                {
-                  _examineMenu.displayError("Not using repair kit, durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " > " + AutoUseRepairKitConditionBelow);
+                  _examineMenu.displayError("AutoRepairKit cancelled: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " > " + AutoUseRepairKitConditionBelow);
                }
                break;
             }
             i--;
+         }
+         if(i == -1)
+         {
+            _examineMenu.displayError("AutoRepairKit cancelled: item condition data not found!");
          }
       }
       
