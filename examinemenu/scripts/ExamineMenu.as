@@ -2219,7 +2219,7 @@ package
          this.PopCraftingHierarchy();
       }
       
-      private function onBackButton() : void
+      public function onBackButton() : void
       {
          if(this.QuantityModal_mc.opened)
          {

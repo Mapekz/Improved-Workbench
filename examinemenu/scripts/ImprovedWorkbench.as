@@ -58,10 +58,6 @@ package
       
       public var ShowInventoryItemCount:Boolean = true;
       
-      public var AutoUseRepairKit:Boolean = false;
-      
-      public var AutoUseRepairKitConditionBelow:Number = 10;
-      
       private var hasScannedLegendaryMods:* = false;
       
       private var timer:Timer;
@@ -213,11 +209,6 @@ package
                ImprovedQuantityMenu = Boolean(_config.enableImprovedQuantityMenu);
                EnableLegendaryModTracking = Boolean(_config.enableLegendaryModTracking);
                ShowInventoryItemCount = Boolean(_config.showInventoryItemCount);
-               AutoUseRepairKit = Boolean(_config.autoUseRepairKit);
-               if(AutoUseRepairKit && _config.autoUseRepairKitConditionBelow != null && !isNaN(_config.autoUseRepairKitConditionBelow))
-               {
-                  AutoUseRepairKitConditionBelow = Number(_config.autoUseRepairKitConditionBelow);
-               }
                Debug = Boolean(_config.debug);
                if(_config.defaultCraftAmount && !isNaN(_config.defaultCraftAmount))
                {
@@ -263,7 +254,7 @@ package
                }
                else if(ExamineMenuMode == "inspect")
                {
-                  if(!usedRepairKit && AutoUseRepairKit)
+                  if(!usedRepairKit && _config.autoUseRepairKit != null && Boolean(_config.autoUseRepairKit.enabled))
                   {
                      usedRepairKit = true;
                      setTimeout(useRepairKit,100);
@@ -290,9 +281,13 @@ package
          {
             _examineMenu.displayError("entries: " + toString(_examineMenu.ItemCardList_mc.InfoObj));
          }
+         if(_config.autoUseRepairKit.conditionUnder == null || isNaN(_config.autoUseRepairKit.conditionUnder))
+         {
+            _config.autoUseRepairKit.conditionUnder = 10;
+         }
          if(_examineMenu.repairKitCount < 1)
          {
-            _examineMenu.displayError("AutoRepairKit cancelled: no repair kits!");
+            _examineMenu.displayError("AutoUseRepairKit cancelled: no repair kits!");
             return;
          }
          var i:int = _examineMenu.ItemCardList_mc.InfoObj.length - 1;
@@ -300,17 +295,21 @@ package
          {
             if(_examineMenu.ItemCardList_mc.InfoObj[i].text == "$health")
             {
-               if(_examineMenu.ItemCardList_mc.InfoObj[i].currentHealth != -1 && _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth != 4294967295 && 100 * _examineMenu.ItemCardList_mc.InfoObj[i].currentHealth / _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth <= AutoUseRepairKitConditionBelow)
+               if(_examineMenu.ItemCardList_mc.InfoObj[i].currentHealth != -1 && _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth != 4294967295 && 100 * _examineMenu.ItemCardList_mc.InfoObj[i].currentHealth / _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth <= _config.autoUseRepairKit.conditionUnder)
                {
-                  _examineMenu.displayError("AutoRepairKit: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " <= " + AutoUseRepairKitConditionBelow);
+                  _examineMenu.displayError("AutoUseRepairKit: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " <= " + _config.autoUseRepairKit.conditionUnder);
                   if(_examineMenu.BGSCodeObj.OnRepairKit != null)
                   {
                      _examineMenu.BGSCodeObj.OnRepairKit();
+                     if(Boolean(_config.autoUseRepairKit.exitAfterRepair))
+                     {
+                        setTimeout(_examineMenu.onBackButton,100);
+                     }
                   }
                }
                else
                {
-                  _examineMenu.displayError("AutoRepairKit cancelled: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " > " + AutoUseRepairKitConditionBelow);
+                  _examineMenu.displayError("AutoUseRepairKit cancelled: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " > " + _config.autoUseRepairKit.conditionUnder);
                }
                break;
             }
@@ -318,7 +317,7 @@ package
          }
          if(i == -1)
          {
-            _examineMenu.displayError("AutoRepairKit cancelled: item condition data not found!");
+            _examineMenu.displayError("AutoUseRepairKit cancelled: item condition data not found!");
          }
       }
       
