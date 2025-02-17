@@ -19,7 +19,7 @@ package
       
       private static const MAX_CRAFTABLE:uint = 255;
       
-      public static const VERSION:String = "1.6.5";
+      public static const VERSION:String = "1.6.6";
       
       public static const MOD_NAME:String = "ImprovedWorkbench";
       
@@ -300,7 +300,7 @@ package
                      _examineMenu.BGSCodeObj.OnRepairKit();
                      if(Boolean(_config.autoUseRepairKit.exitAfterRepair))
                      {
-                        setTimeout(_examineMenu.onBackButton,100);
+                        setTimeout(_examineMenu.onBackButton,_config.autoUseRepairKit.exitDelay == null || isNaN(_config.autoUseRepairKit.exitDelay) ? 100 : _config.autoUseRepairKit.exitDelay);
                      }
                   }
                }
