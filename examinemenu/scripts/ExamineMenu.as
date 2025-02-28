@@ -21,11 +21,11 @@ package
    import com.adobe.serialization.json.JSONEncoder;
    import flash.display.InteractiveObject;
    import flash.display.MovieClip;
-   import flash.events.Event;
-   import flash.events.MouseEvent;
+   import flash.events.*;
    import flash.text.TextField;
    import flash.text.TextFieldAutoSize;
    import flash.text.TextFormat;
+   import flash.ui.*;
    import flash.utils.*;
    import scaleform.gfx.Extensions;
    import scaleform.gfx.TextFieldEx;
@@ -380,7 +380,7 @@ package
          this.errorMessage = new TextField();
          this.errorMessage.x = 20;
          this.errorMessage.y = 40;
-         this.errorMessage.width = 700;
+         this.errorMessage.width = 1800;
          this.errorMessage.height = 700;
          GlobalFunc.SetText(this.errorMessage,"",false);
          if(false)
