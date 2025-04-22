@@ -390,7 +390,7 @@ package
          this.errorMessage.autoSize = TextFieldAutoSize.LEFT;
          this.errorMessage.wordWrap = true;
          this.errorMessage.multiline = true;
-         var font:TextFormat = new TextFormat("Arial",18,this.calcColor(255,255,255));
+         var font:TextFormat = new TextFormat("Arial",18,16777215);
          this.errorMessage.defaultTextFormat = font;
          this.errorMessage.setTextFormat(font);
          this.errorMessage.selectable = true;
@@ -398,11 +398,6 @@ package
          this.errorMessage.mouseEnabled = true;
          this.errorMessage.visible = false;
          addChild(this.errorMessage);
-      }
-      
-      private function calcColor(red:uint, green:uint, blue:uint) : uint
-      {
-         return red * 256 * 256 + green * 256 + blue;
       }
       
       public function displayError(param1:*, clear:Boolean = false) : void
