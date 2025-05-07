@@ -17,9 +17,11 @@ package
       
       public static var Debug:Boolean = false;
       
+      public static var DEBUG_SELECTION:Boolean = false;
+      
       private static const MAX_CRAFTABLE:uint = 255;
       
-      public static const VERSION:String = "1.6.6";
+      public static const VERSION:String = "1.6.7";
       
       public static const MOD_NAME:String = "ImprovedWorkbench";
       
@@ -665,6 +667,10 @@ package
             {
                var itemText:String = item.text.replace(/\s*x[0-9]+/,"");
             }
+            else if(item.text.indexOf("¢") != -1)
+            {
+               itemText = item.text.replace(/\s*¢/,"");
+            }
             else
             {
                itemText = item.text;
@@ -692,7 +698,7 @@ package
          var i:int = 0;
          while(i < _examineMenu.InventoryBase_mc.InventoryList_mc.entryList.length)
          {
-            var count:* = inventoryCounts[_examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text.replace(/\s*x[0-9]+/,"")];
+            var count:* = inventoryCounts[_examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text.replace(/\s*x[0-9]+/,"").replace(/\s*¢/,"")];
             if(count > 0)
             {
                _examineMenu.InventoryBase_mc.InventoryList_mc.entryList[i].text += " (" + count + ")";

@@ -390,7 +390,7 @@ package
          this.errorMessage.autoSize = TextFieldAutoSize.LEFT;
          this.errorMessage.wordWrap = true;
          this.errorMessage.multiline = true;
-         var font:TextFormat = new TextFormat("Arial",18,16777215);
+         var font:TextFormat = new TextFormat("$MAIN_Font",18,16777215);
          this.errorMessage.defaultTextFormat = font;
          this.errorMessage.setTextFormat(font);
          this.errorMessage.selectable = true;
@@ -1106,6 +1106,10 @@ package
       
       public function FillPossibleModPartArray(param1:Event) : *
       {
+         if(ImprovedWorkbench.DEBUG_SELECTION)
+         {
+            displayError(this.ModSlotListObject.selectedEntry);
+         }
          if(this.ModSlotListObject.selectedIndex > -1 && this.ModListObject.entryList)
          {
             this.BGSCodeObj.FillModPartArray(this.ModListObject.entryList,this.ModListObject);
@@ -1124,7 +1128,19 @@ package
       
       public function onModChange() : *
       {
-         var _loc1_:Array = null;
+         var textIds:String;
+         var _loc1_:Array;
+         if(ImprovedWorkbench.DEBUG_SELECTION)
+         {
+            displayError(this.ModListObject.selectedEntry);
+            textIds = "";
+            this.ModListObject.selectedEntry.text.split("").forEach(function(x:String):void
+            {
+               textIds += x.charCodeAt(0) + ",";
+            });
+            displayError("codes: " + textIds);
+         }
+         _loc1_ = null;
          if(!this._isCookingMenu || this.eMode == this.MOD_MODE)
          {
             _loc1_ = new Array();
@@ -1229,6 +1245,10 @@ package
       
       public function InventorySelectionChange(param1:Event) : *
       {
+         if(ImprovedWorkbench.DEBUG_SELECTION)
+         {
+            displayError(this.InventoryBase_mc.InventoryList_mc.selectedEntry);
+         }
          if(!this._isCookingMenu)
          {
             this.BGSCodeObj.SwitchBaseItem();
