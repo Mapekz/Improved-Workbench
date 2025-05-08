@@ -289,34 +289,44 @@ package
             _examineMenu.displayError("AutoUseRepairKit cancelled: no repair kits!");
             return;
          }
+         var isWeaponOrArmor:Boolean = false;
+         var isValid:Boolean = false;
          var i:int = _examineMenu.ItemCardList_mc.InfoObj.length - 1;
          while(i >= 0)
          {
             if(_examineMenu.ItemCardList_mc.InfoObj[i].text == "$health")
             {
-               if(_examineMenu.ItemCardList_mc.InfoObj[i].currentHealth != -1 && _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth != 4294967295 && 100 * _examineMenu.ItemCardList_mc.InfoObj[i].currentHealth / _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth <= _config.autoUseRepairKit.conditionUnder)
-               {
-                  _examineMenu.displayError("AutoUseRepairKit: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " <= " + _config.autoUseRepairKit.conditionUnder);
-                  if(_examineMenu.BGSCodeObj.OnRepairKit != null)
-                  {
-                     _examineMenu.BGSCodeObj.OnRepairKit();
-                     if(Boolean(_config.autoUseRepairKit.exitAfterRepair))
-                     {
-                        setTimeout(_examineMenu.onBackButton,_config.autoUseRepairKit.exitDelay == null || isNaN(_config.autoUseRepairKit.exitDelay) ? 100 : _config.autoUseRepairKit.exitDelay);
-                     }
-                  }
-               }
-               else
+               if(!(_examineMenu.ItemCardList_mc.InfoObj[i].currentHealth != -1 && _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth != 4294967295 && 100 * _examineMenu.ItemCardList_mc.InfoObj[i].currentHealth / _examineMenu.ItemCardList_mc.InfoObj[i].maximumHealth <= _config.autoUseRepairKit.conditionUnder))
                {
                   _examineMenu.displayError("AutoUseRepairKit cancelled: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " > " + _config.autoUseRepairKit.conditionUnder);
+                  break;
                }
-               break;
+               _examineMenu.displayError("AutoUseRepairKit: durability: " + _examineMenu.ItemCardList_mc.InfoObj[i].value + " <= " + _config.autoUseRepairKit.conditionUnder);
+               if(_examineMenu.BGSCodeObj.OnRepairKit != null)
+               {
+                  isValid = true;
+               }
+            }
+            else if(_examineMenu.ItemCardList_mc.InfoObj[i].text == "$dmg" || _examineMenu.ItemCardList_mc.InfoObj[i].text == "$dr")
+            {
+               isWeaponOrArmor = true;
             }
             i--;
          }
-         if(i == -1)
+         if(isValid)
          {
-            _examineMenu.displayError("AutoUseRepairKit cancelled: item condition data not found!");
+            if(isWeaponOrArmor)
+            {
+               _examineMenu.BGSCodeObj.OnRepairKit();
+               if(Boolean(_config.autoUseRepairKit.exitAfterRepair))
+               {
+                  setTimeout(_examineMenu.onBackButton,_config.autoUseRepairKit.exitDelay == null || isNaN(_config.autoUseRepairKit.exitDelay) ? 100 : _config.autoUseRepairKit.exitDelay);
+               }
+            }
+            else
+            {
+               _examineMenu.displayError("AutoUseRepairKit cancelled: item is not weapon or armor!");
+            }
          }
       }
       
