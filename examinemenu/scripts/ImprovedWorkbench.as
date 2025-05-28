@@ -21,7 +21,7 @@ package
       
       private static const MAX_CRAFTABLE:uint = 255;
       
-      public static const VERSION:String = "1.6.7";
+      public static const VERSION:String = "1.6.8";
       
       public static const MOD_NAME:String = "ImprovedWorkbench";
       
@@ -406,6 +406,21 @@ package
                if(PerksUIData.perkCardDataA[i].equipped)
                {
                   perkCardsData[PerksUIData.perkCardDataA[i].text] = PerksUIData.perkCardDataA[i].rank + 1;
+               }
+            }
+            i++;
+         }
+         i = 0;
+         while(i < PerksUIData.teammateCardDataA.length)
+         {
+            if(_config.perkCardsConfig.perkCards.indexOf(PerksUIData.teammateCardDataA[i].text) != -1)
+            {
+               if(PerksUIData.teammateCardDataA[i].equipped)
+               {
+                  if(perkCardsData[PerksUIData.teammateCardDataA[i].text] == null || perkCardsData[PerksUIData.teammateCardDataA[i].text] < PerksUIData.teammateCardDataA[i].rank + 1)
+                  {
+                     perkCardsData[PerksUIData.teammateCardDataA[i].text] = PerksUIData.teammateCardDataA[i].rank + 1;
+                  }
                }
             }
             i++;
