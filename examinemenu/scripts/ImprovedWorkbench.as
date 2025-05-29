@@ -10,6 +10,7 @@ package
    import flash.filters.*;
    import flash.net.*;
    import flash.text.*;
+   import flash.ui.*;
    import flash.utils.*;
    
    public class ImprovedWorkbench
@@ -80,6 +81,10 @@ package
       
       private var usedRepairKit:Boolean = false;
       
+      private var CustomWorkbenchRepairHotkey:int = 0;
+      
+      private var CustomRepairKitRepairHotkey:int = 0;
+      
       public function ImprovedWorkbench(examineMenu:Object)
       {
          this.perkCardsData = {};
@@ -91,6 +96,7 @@ package
          this.LegendaryPerksMenuData = BSUIDataManager.GetDataFromClient("LegendaryPerksMenuData").data;
          BSUIDataManager.Subscribe("PerksUIData",initPerkCardsConfig);
          BSUIDataManager.Subscribe("LegendaryPerksMenuData",initPerkCardsConfig);
+         this._examineMenu.stage.addEventListener(KeyboardEvent.KEY_UP,this.keyUpHandler);
       }
       
       public static function ShowMessage(param1:String) : void
@@ -194,6 +200,23 @@ package
          return this._config;
       }
       
+      public function keyUpHandler(event:Event) : void
+      {
+         if(event.keyCode == CustomRepairKitRepairHotkey)
+         {
+            if(_examineMenu.BGSCodeObj.OnRepairKit != null)
+            {
+               _examineMenu.BGSCodeObj.OnRepairKit();
+               _examineMenu.displayError("RepairKitRepair hotkey");
+            }
+         }
+         if(event.keyCode == CustomWorkbenchRepairHotkey)
+         {
+            this._examineMenu.BGSCodeObj.RepairSelectedItem();
+            _examineMenu.displayError("WorkbenchRepair hotkey");
+         }
+      }
+      
       private function loadConfig() : void
       {
          var loaderComplete:Function;
@@ -221,6 +244,14 @@ package
                   LEGENDARY_LOAD_FILE_LOCATION = _config.legendaryModTrackingLoadFileDirectory;
                }
                initPerkCardsConfig(null);
+               if(_config.customRepairKitRepairHotkey && !isNaN(_config.customRepairKitRepairHotkey))
+               {
+                  CustomRepairKitRepairHotkey = int(_config.customRepairKitRepairHotkey);
+               }
+               if(_config.customWorkbenchRepairHotkey && !isNaN(_config.customWorkbenchRepairHotkey))
+               {
+                  CustomWorkbenchRepairHotkey = int(_config.customWorkbenchRepairHotkey);
+               }
                _examineMenu.displayError(MOD_NAME + " " + VERSION + " Config file loaded");
                init();
                _examineMenu.displayError("Initialized");
