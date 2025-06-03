@@ -2,7 +2,7 @@ package
 {
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol272")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol279")]
    public dynamic class WS_icon_ResourceAV_Scavenge extends MovieClip
    {
        

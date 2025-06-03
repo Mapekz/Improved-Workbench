@@ -2,12 +2,12 @@ package ExamineMenu_fla
 {
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol95")]
-   public dynamic class ItemCard_Comparison_93 extends MovieClip
+   [Embed(source="/_assets/assets.swf", symbol="symbol268")]
+   public dynamic class icon_durability_99 extends MovieClip
    {
        
       
-      public function ItemCard_Comparison_93()
+      public function icon_durability_99()
       {
          super();
          addFrameScript(0,this.frame1);

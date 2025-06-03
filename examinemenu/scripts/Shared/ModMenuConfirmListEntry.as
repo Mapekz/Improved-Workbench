@@ -3,7 +3,7 @@ package Shared
    import flash.display.MovieClip;
    import flash.text.TextField;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol306")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol313")]
    public dynamic class ModMenuConfirmListEntry extends MovieClip
    {
        

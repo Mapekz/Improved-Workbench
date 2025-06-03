@@ -2,7 +2,7 @@ package
 {
    import Shared.AS3.QuantityMenu;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol338")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol345")]
    public dynamic class modalSetQuantity extends QuantityMenu
    {
        

@@ -13,7 +13,6 @@ package
    import Shared.AS3.QuantityMenu;
    import Shared.AS3.StyleSheet;
    import Shared.AS3.Styles.ExamineMenu_CurrentModListStyle;
-   import Shared.AS3.Styles.ExamineMenu_ItemCardStyle;
    import Shared.AS3.Styles.ExamineMenu_LeftHandListStyle;
    import Shared.AS3.Styles.ExamineMenu_RightHandListStyle;
    import Shared.GlobalFunc;
@@ -30,7 +29,7 @@ package
    import scaleform.gfx.Extensions;
    import scaleform.gfx.TextFieldEx;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol458")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol440")]
    public class ExamineMenu extends IMenu
    {
       
@@ -55,7 +54,7 @@ package
       
       public var ModDescriptionBase_mc:MovieClip;
       
-      public var ItemCardList_mc:ItemCard;
+      public var ItemCardContainer_mc:MovieClip;
       
       public var ButtonHintBar_mc:BSButtonHintBar;
       
@@ -86,6 +85,8 @@ package
       public var KnownModsInfo_mc:MovieClip;
       
       public var LegendaryCraftingFanfare_mc:LegendaryCraftingFanfare;
+      
+      public var ItemCardList_mc:ItemCard;
       
       private var m_ConfirmMenuOpen:Boolean = false;
       
@@ -206,6 +207,16 @@ package
       private const INSPECT_MODE:uint = 6;
       
       private const LEVEL_SELECT_MODE:uint = 7;
+      
+      private const ITEM_CARD_START_HEIGHT:Number = 82;
+      
+      private const ITEM_CARD_START_Y:Number = 338.8;
+      
+      private const ITEM_CARD_ENTRY_HEIGHT:Number = 40;
+      
+      private const ITEM_CARD_LABEL_START_Y:Number = 340.7;
+      
+      private const ITEM_CARD_DESCRIPTION_START_Y:Number = 240.05;
       
       private const MAX_CRAFTABLE:uint = 255;
       
@@ -349,6 +360,7 @@ package
          this._craftingHierarchy = new Array();
          super();
          addFrameScript(11,this.frame12,17,this.frame18,24,this.frame25,37,this.frame38);
+         this.ItemCardList_mc = this.ItemCardContainer_mc.ItemCardList_mc;
          this.BGSCodeObj = new Object();
          this.BGSCodeObj.SwitchBaseItem = new Function();
          this.BGSCodeObj.FillModPartArray = new Function();
@@ -705,7 +717,6 @@ package
          StyleSheet.apply(this.InventoryBase_mc.InventoryList_mc,false,ExamineMenu_LeftHandListStyle);
          StyleSheet.apply(this.ModSlotBase_mc.ModSlotList_mc,false,ExamineMenu_RightHandListStyle);
          StyleSheet.apply(this.CurrentModsBase_mc.ModSlotList_mc,false,ExamineMenu_CurrentModListStyle);
-         StyleSheet.apply(this.ItemCardList_mc,false,ExamineMenu_ItemCardStyle);
          TextFieldEx.setTextAutoSize(this.ItemName_tf,"shrink");
          TextFieldEx.setTextAutoSize(this.PerkPanel0_mc.Title_mc.Title_tf,"shrink");
          TextFieldEx.setTextAutoSize(this.PerkPanel1_mc.Title_mc.Title_tf,"shrink");
@@ -743,8 +754,10 @@ package
          this.ModDescriptionBase_mc.DynamicModDescription_mc.disableInput = true;
          addEventListener(BCGridList.LIST_UPDATED,this.onDynamicModDescriptionUpdated);
          this.ItemCardList_mc.bottomUp = true;
+         this.ItemCardList_mc.entrySpacing = 2.5;
+         this.ItemCardList_mc.showItemDesc = false;
+         this.ItemCardList_mc.blankEntryFillTarget = 10;
          this.ItemCardList_mc.addEventListener(ItemCard.EVENT_ITEM_CARD_UPDATED,this.OnItemCardUpdated);
-         this.CenterShadedBG_mc.ItemStats_mc.gotoAndStop("entry10");
       }
       
       private function finalizeInitialization() : *
@@ -918,7 +931,7 @@ package
          this.InventoryBase_mc.visible = false;
          this.ModSlotBase_mc.visible = false;
          this.CurrentModsBase_mc.ModSlotList_mc.visible = true;
-         this.ItemCardList_mc.visible = this.ItemStatsVisibility;
+         this.ItemCardContainer_mc.visible = this.ItemStatsVisibility;
          this.CurrentModsListObject.SetActive(this.CurrentModsBase_mc.ModSlotList_mc,"CurrentModsListObject");
          this.eMode = this.INSPECT_MODE;
          this.InventoryBase_mc.InventoryList_mc.disableInput_Inspectable = true;
@@ -1454,21 +1467,25 @@ package
             _loc1_ = new TextField();
             _loc1_.text = "$REPAIR_KIT_NUM";
             this.RepairKitButton.ButtonText = _loc1_.text.replace("{1}",this._repairKitCount);
-            this.WorkbenchRepairButton.ButtonVisible = this._isWorkbench && this.BGSCodeObj.CanRepairSelectedItem(false);
-            this.WorkbenchRepairButton.ButtonDisabled = !this.BGSCodeObj.CanRepairSelectedItem(false);
          }
-         else if(this.BGSCodeObj.CanRepairSelectedItem(true))
+         else if(this.RepairKitsEnabled)
          {
-            this.RepairKitButton.ButtonVisible = this.RepairKitsEnabled;
+            this.RepairKitButton.ButtonVisible = this.BGSCodeObj.CanRepairSelectedItem(true);
             _loc1_ = new TextField();
             _loc1_.text = "$REPAIR_KIT_NUM";
             this.RepairKitButton.ButtonText = _loc1_.text.replace("{1}",this._repairKitCount);
-            this.WorkbenchRepairButton.ButtonVisible = this._isWorkbench;
-            this.WorkbenchRepairButton.ButtonDisabled = !this.BGSCodeObj.CanRepairSelectedItem(false);
          }
          else
          {
             this.RepairKitButton.ButtonVisible = false;
+         }
+         if(this._isWorkbench)
+         {
+            this.WorkbenchRepairButton.ButtonVisible = true;
+            this.WorkbenchRepairButton.ButtonDisabled = !this.BGSCodeObj.CanRepairSelectedItem(false);
+         }
+         else
+         {
             this.WorkbenchRepairButton.ButtonVisible = false;
          }
          switch(this.eMode)
@@ -2417,8 +2434,11 @@ package
       
       public function OnItemCardUpdated(param1:Event) : *
       {
-         var _loc2_:int = Math.max(this.ItemCardList_mc.entryCount,MIN_ITEM_CARD_ENTRIES);
-         this.CenterShadedBG_mc.ItemStats_mc.gotoAndStop("entry" + Math.min(_loc2_,MAX_ITEM_CARD_ENTRIES));
+         var _loc2_:uint = this.ItemCardContainer_mc.ItemCardList_mc.entryCount - 1;
+         this.ItemCardContainer_mc.Background_mc.Box_mc.height = this.ITEM_CARD_START_HEIGHT + this.ITEM_CARD_ENTRY_HEIGHT * _loc2_;
+         this.ItemCardContainer_mc.Background_mc.Box_mc.y = this.ITEM_CARD_START_Y - this.ITEM_CARD_ENTRY_HEIGHT * _loc2_;
+         this.ItemCardContainer_mc.Background_mc.itemStatsLabel_tf.y = this.ITEM_CARD_LABEL_START_Y - (this.ITEM_CARD_ENTRY_HEIGHT - 1) * _loc2_;
+         this.ItemCardContainer_mc.Background_mc.StatsLabelBG_mc.y = this.ITEM_CARD_LABEL_START_Y - (this.ITEM_CARD_ENTRY_HEIGHT - 1) * _loc2_;
       }
       
       public function set itemDescription(param1:String) : *

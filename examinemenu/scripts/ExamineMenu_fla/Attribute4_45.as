@@ -3,17 +3,17 @@ package ExamineMenu_fla
    import flash.display.MovieClip;
    import flash.events.Event;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol351")]
-   public dynamic class Attribute3_43 extends MovieClip
+   [Embed(source="/_assets/assets.swf", symbol="symbol357")]
+   public dynamic class Attribute4_45 extends MovieClip
    {
        
       
       public var AttributeText_mc:MovieClip;
       
-      public function Attribute3_43()
+      public function Attribute4_45()
       {
          super();
-         addFrameScript(0,this.frame1,63,this.frame64);
+         addFrameScript(0,this.frame1,73,this.frame74);
       }
       
       internal function frame1() : *
@@ -21,7 +21,7 @@ package ExamineMenu_fla
          stop();
       }
       
-      internal function frame64() : *
+      internal function frame74() : *
       {
          dispatchEvent(new Event("ExamineMenu::DisplayNextAttribute",true));
          stop();

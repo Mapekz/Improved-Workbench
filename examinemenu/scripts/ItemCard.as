@@ -3,7 +3,7 @@ package
    import Shared.AS3.BSUIComponent;
    import flash.events.Event;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol375")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol382")]
    public class ItemCard extends BSUIComponent
    {
       
@@ -42,6 +42,8 @@ package
       
       private const ET_FIRE_MODE:uint = 10;
       
+      private const ET_HIDE_DIFFERENCE:uint = 11;
+      
       private var m_BlankEntryFillTarget:uint = 0;
       
       private var m_EntrySpacing:Number = -3.5;
@@ -56,7 +58,6 @@ package
       
       public function ItemCard()
       {
-         this.m_EntrySpacing = -3.5;
          super();
          this._InfoObj = new Array();
          this._showItemDesc = true;
@@ -412,6 +413,10 @@ package
          {
             _loc2_ = this.ET_FIRE_MODE;
          }
+         else if(param1.hideDifferenceValue == true)
+         {
+            _loc2_ = this.ET_HIDE_DIFFERENCE;
+         }
          return _loc2_;
       }
       
@@ -458,6 +463,9 @@ package
                break;
             case this.ET_FIRE_MODE:
                _loc2_ = new ItemCard_FireModeEntry();
+               break;
+            case this.ET_HIDE_DIFFERENCE:
+               _loc2_ = new ItemCard_HideDifferenceEntry();
          }
          return _loc2_;
       }

@@ -9,7 +9,7 @@ package Shared.AS3
    import flash.system.ApplicationDomain;
    import flash.utils.getDefinitionByName;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol364")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol371")]
    public class SWFLoaderClip extends MovieClip
    {
        

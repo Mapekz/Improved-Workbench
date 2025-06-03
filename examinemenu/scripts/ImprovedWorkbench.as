@@ -581,6 +581,7 @@ package
          if(Boolean(Config.uiConfig.hideBackground))
          {
             _examineMenu.CenterShadedBG_mc.visible = false;
+            _examineMenu.ItemCardContainer_mc.Background_mc.visible = false;
          }
          if(Boolean(Config.uiConfig.hideHeader))
          {
@@ -608,8 +609,8 @@ package
          {
             x = parseNumber(Config.uiConfig.ItemCard.x);
             y = parseNumber(Config.uiConfig.ItemCard.y);
-            _examineMenu.ItemCardList_mc.x += x;
-            _examineMenu.ItemCardList_mc.y += y;
+            _examineMenu.ItemCardContainer_mc.x += x;
+            _examineMenu.ItemCardContainer_mc.y += y;
          }
          if(Config.uiConfig.Inventory)
          {
@@ -672,7 +673,7 @@ package
          _examineMenu.alpha = 1;
          _examineMenu.ItemName_tf.alpha = 1;
          _examineMenu.LegendaryItemDescription_tf.alpha = 1;
-         _examineMenu.ItemCardList_mc.alpha = 1;
+         _examineMenu.ItemCardContainer_mc.alpha = 1;
          _examineMenu.InventoryBase_mc.alpha = 1;
          _examineMenu.CraftingHeirarchy_mc.alpha = 1;
          _examineMenu.ModDescriptionBase_mc.alpha = 1;

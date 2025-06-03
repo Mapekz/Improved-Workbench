@@ -4,7 +4,7 @@ package
    import scaleform.gfx.Extensions;
    import scaleform.gfx.TextFieldEx;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol298")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol305")]
    public class CurrentModListEntry extends BSScrollingListEntry
    {
        

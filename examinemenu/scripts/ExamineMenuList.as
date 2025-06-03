@@ -5,7 +5,7 @@ package
    import flash.events.Event;
    import flash.events.MouseEvent;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol382")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol389")]
    public class ExamineMenuList extends DummyEntryList
    {
       

@@ -1,16 +1,13 @@
 package ExamineMenu_fla
 {
    import flash.display.MovieClip;
-   import flash.text.TextField;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol291")]
-   public dynamic class ValueText_mc_78 extends MovieClip
+   [Embed(source="/_assets/assets.swf", symbol="symbol335")]
+   public dynamic class ValueInputBG_67 extends MovieClip
    {
        
       
-      public var ValueText_tf:TextField;
-      
-      public function ValueText_mc_78()
+      public function ValueInputBG_67()
       {
          super();
          addFrameScript(0,this.frame1,1,this.frame2);
