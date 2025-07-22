@@ -4,7 +4,7 @@ package
    import flash.text.TextFieldAutoSize;
    import scaleform.gfx.TextFieldEx;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol274")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol277")]
    public class ItemCard_DescriptionEntry extends ItemCard_Entry
    {
        

@@ -2,12 +2,12 @@ package ExamineMenu_fla
 {
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol338")]
-   public dynamic class ValueInputBG_67 extends MovieClip
+   [Embed(source="/_assets/assets.swf", symbol="symbol85")]
+   public dynamic class ItemLock_Icon_133 extends MovieClip
    {
        
       
-      public function ValueInputBG_67()
+      public function ItemLock_Icon_133()
       {
          super();
          addFrameScript(0,this.frame1,1,this.frame2);

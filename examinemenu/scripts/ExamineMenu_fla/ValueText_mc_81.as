@@ -3,7 +3,7 @@ package ExamineMenu_fla
    import flash.display.MovieClip;
    import flash.text.TextField;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol298")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol301")]
    public dynamic class ValueText_mc_81 extends MovieClip
    {
        

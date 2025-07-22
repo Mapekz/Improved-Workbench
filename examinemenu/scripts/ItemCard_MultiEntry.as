@@ -3,7 +3,7 @@ package
    import Shared.GlobalFunc;
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol143")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol146")]
    public class ItemCard_MultiEntry extends ItemCard_Entry
    {
       

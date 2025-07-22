@@ -1,6 +1,6 @@
 package
 {
-   [Embed(source="/_assets/assets.swf", symbol="symbol117")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol120")]
    public dynamic class ItemCard_StandardEntry extends ItemCard_Entry
    {
        

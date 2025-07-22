@@ -29,7 +29,7 @@ package
    import scaleform.gfx.Extensions;
    import scaleform.gfx.TextFieldEx;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol440")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol443")]
    public class ExamineMenu extends IMenu
    {
       
@@ -1153,6 +1153,7 @@ package
             });
             displayError("codes: " + textIds);
          }
+         _loc1_ = null;
          _loc1_ = null;
          if(!this._isCookingMenu || this.eMode == this.MOD_MODE)
          {
@@ -2438,7 +2439,7 @@ package
          this.ItemCardContainer_mc.Background_mc.Box_mc.height = this.ITEM_CARD_START_HEIGHT + this.ITEM_CARD_ENTRY_HEIGHT * _loc2_;
          this.ItemCardContainer_mc.Background_mc.Box_mc.y = this.ITEM_CARD_START_Y - this.ITEM_CARD_ENTRY_HEIGHT * _loc2_;
          this.ItemCardContainer_mc.Background_mc.itemStatsLabel_tf.y = this.ITEM_CARD_LABEL_START_Y - (this.ITEM_CARD_ENTRY_HEIGHT - 1) * _loc2_;
-         this.ItemCardContainer_mc.Background_mc.StatsLabelBG_mc.y = this.ITEM_CARD_LABEL_START_Y - (this.ITEM_CARD_ENTRY_HEIGHT - 1) * _loc2_;
+         this.ItemCardContainer_mc.Background_mc.StatsLabelBG_mc.y = this.ITEM_CARD_LABEL_START_Y - (this.ITEM_CARD_ENTRY_HEIGHT - 1) * _loc2_ - 1;
       }
       
       public function set itemDescription(param1:String) : *

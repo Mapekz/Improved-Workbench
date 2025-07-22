@@ -2,7 +2,7 @@ package
 {
    import Shared.AS3.BSUIComponent;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol393")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol396")]
    public dynamic class QuestImageInternal extends BSUIComponent
    {
        

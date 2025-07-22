@@ -2,7 +2,7 @@ package ExamineMenu_fla
 {
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol247")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol250")]
    public dynamic class colorConditionMeter_103 extends MovieClip
    {
        

@@ -2,7 +2,7 @@ package
 {
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol270")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol273")]
    public class ItemCard_DurabilityEntry extends ItemCard_Entry
    {
        

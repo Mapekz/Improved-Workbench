@@ -2,7 +2,7 @@ package
 {
    import flash.display.MovieClip;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol110")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol113")]
    public class ItemCard_TimedEntry extends ItemCard_Entry
    {
        

@@ -2,7 +2,7 @@ package
 {
    import Shared.AS3.BSScrollingList;
    
-   [Embed(source="/_assets/assets.swf", symbol="symbol381")]
+   [Embed(source="/_assets/assets.swf", symbol="symbol384")]
    public dynamic class CurrentModList extends BSScrollingList
    {
        
