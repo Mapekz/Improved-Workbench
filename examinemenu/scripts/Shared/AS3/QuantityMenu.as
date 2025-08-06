@@ -42,7 +42,6 @@ package Shared.AS3
       public static const CANCEL:String = "QuantityMenu::quantityCancelled";
       
       public static var zel_ImprovedMenu:Boolean = true;
-       
       
       public var Label_tf:TextField;
       
@@ -728,3 +727,4 @@ package Shared.AS3
       }
    }
 }
+

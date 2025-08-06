@@ -39,7 +39,6 @@ package
       public static const LEGENDARY_MOD_WEAPONS_REGEX:* = /(WEAPONS|Waffen|Armas|Armes|Armi|武器|무기|UZBROJENIE|BROŃ BIAŁA|Оружие|ОРУЖИЕ)/i;
       
       public static const LEGENDARY_MOD_RAPID_REGEX:* = /(Rapid|Rapidité|Veloz|Schnell|Rapido|Dynamiczny|Стремительное|迅速な|재빠른|速射)/i;
-       
       
       private var _config:Object = null;
       
@@ -67,7 +66,7 @@ package
       
       private var isUIinit:Boolean = false;
       
-      private var inventoryCounts:*;
+      private var inventoryCounts:* = {};
       
       private var ExamineMenuMode:String = "";
       
@@ -77,7 +76,7 @@ package
       
       private var perkCards_tf:TextField;
       
-      private var perkCardsData:*;
+      private var perkCardsData:* = {};
       
       private var usedRepairKit:Boolean = false;
       
@@ -87,8 +86,6 @@ package
       
       public function ImprovedWorkbench(examineMenu:Object)
       {
-         this.perkCardsData = {};
-         this.inventoryCounts = {};
          super();
          this._examineMenu = examineMenu;
          loadConfig();
@@ -1145,3 +1142,4 @@ package
       }
    }
 }
+

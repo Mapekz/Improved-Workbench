@@ -2,7 +2,6 @@ package Shared.AS3
 {
    public class BSScrollingListFadeEntry extends BSScrollingListEntry
    {
-       
       
       internal const fUnselectedBorderAlpha:Number = 0.5;
       
@@ -26,3 +25,4 @@ package Shared.AS3
       }
    }
 }
+

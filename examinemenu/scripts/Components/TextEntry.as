@@ -7,7 +7,6 @@ package Components
    [Embed(source="/_assets/assets.swf", symbol="symbol8")]
    public class TextEntry extends MovieClip
    {
-       
       
       public var TextEntryAnim_mc:MovieClip;
       
@@ -82,3 +81,4 @@ package Components
       }
    }
 }
+

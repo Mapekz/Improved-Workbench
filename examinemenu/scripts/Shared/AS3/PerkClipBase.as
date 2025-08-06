@@ -26,7 +26,6 @@ package Shared.AS3
       public static const RACE_RESTRICTION_HUMAN:uint = 1;
       
       public static const RACE_RESTRICTION_GHOUL:uint = 2;
-       
       
       protected var m_PerkID:uint = 4294967295;
       
@@ -280,3 +279,4 @@ package Shared.AS3
       }
    }
 }
+

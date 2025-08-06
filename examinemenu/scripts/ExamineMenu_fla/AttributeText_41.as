@@ -6,7 +6,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol350")]
    public dynamic class AttributeText_41 extends MovieClip
    {
-       
       
       public var Attribute_tf:TextField;
       
@@ -22,3 +21,4 @@ package ExamineMenu_fla
       }
    }
 }
+

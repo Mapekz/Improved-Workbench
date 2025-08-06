@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol271")]
    public dynamic class icon_durability_99 extends MovieClip
    {
-       
       
       public function icon_durability_99()
       {
@@ -19,3 +18,4 @@ package ExamineMenu_fla
       }
    }
 }
+

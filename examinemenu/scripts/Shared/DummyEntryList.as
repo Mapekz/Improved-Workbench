@@ -4,7 +4,6 @@ package Shared
    
    public class DummyEntryList extends UpdateEventList
    {
-       
       
       protected var _addsDummyEntryOnBlankList:Boolean = false;
       
@@ -121,3 +120,4 @@ package Shared
       }
    }
 }
+

@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol19")]
    public dynamic class List2Icon_155 extends MovieClip
    {
-       
       
       public function List2Icon_155()
       {
@@ -19,3 +18,4 @@ package ExamineMenu_fla
       }
    }
 }
+

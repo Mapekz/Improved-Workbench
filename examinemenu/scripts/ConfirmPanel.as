@@ -13,7 +13,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol312")]
    public class ConfirmPanel extends MovieClip
    {
-       
       
       public var ButtonHintBar_mc:BSButtonHintBar;
       
@@ -203,7 +202,8 @@ package
          _loc7_ = 0;
          while(_loc7_ < _loc1_)
          {
-            (_loc8_ = this.m_Entries[_loc7_]).originalY = _loc2_;
+            _loc8_ = this.m_Entries[_loc7_];
+            _loc8_.originalY = _loc2_;
             _loc8_.y = _loc2_;
             _loc8_.UpdateList();
             _loc6_ = Math.max(_loc6_,this.m_Entries[_loc7_].fullWidth);
@@ -213,7 +213,7 @@ package
          this.ButtonHintBar_mc.redrawUIComponent();
          _loc6_ = Math.max(_loc6_,this.ButtonHintBar_mc.Sizer_mc.width);
          _loc6_ = Math.max(this.MinWidthC,_loc6_ + this.WidthPaddingC);
-         this.TopComponentSource = !!_loc1_ ? 0 : -1;
+         this.TopComponentSource = _loc1_ ? 0 : -1;
          this.TopComponent = 0;
          this.BGRect_mc.height = Math.min(_loc2_,this.MaxHeightC) + this.YBufferBeforeButtonsC + this.ButtonHintBar_mc.Sizer_mc.height + this.YBufferAfterButtonsC;
          this.ButtonHintBar_mc.y = this.BGRect_mc.height - this.ButtonHintBar_mc.Sizer_mc.height - this.YBufferAfterButtonsC;
@@ -230,7 +230,8 @@ package
          _loc7_ = 0;
          while(_loc7_ < _loc1_)
          {
-            (_loc8_ = this.m_Entries[_loc7_]).x = _loc6_ / 2 + _loc8_.textField.width - _loc8_.width / 2;
+            _loc8_ = this.m_Entries[_loc7_];
+            _loc8_.x = _loc6_ / 2 + _loc8_.textField.width - _loc8_.width / 2;
             _loc7_++;
          }
          this.UpdateScroll();
@@ -388,3 +389,4 @@ package
       }
    }
 }
+

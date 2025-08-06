@@ -10,7 +10,6 @@ package
    {
       
       public static const MOUSE_OVER:String = "ItemList::mouse_over";
-       
       
       public function ExamineMenuList()
       {
@@ -63,3 +62,4 @@ package
       }
    }
 }
+

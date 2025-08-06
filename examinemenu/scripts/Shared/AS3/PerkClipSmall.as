@@ -8,7 +8,6 @@ package Shared.AS3
    
    public class PerkClipSmall extends PerkClipBase
    {
-       
       
       public var Title_mc:MovieClip;
       
@@ -81,3 +80,4 @@ package Shared.AS3
       }
    }
 }
+

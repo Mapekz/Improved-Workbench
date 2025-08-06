@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol98")]
    public dynamic class ItemCard_Comparison_96 extends MovieClip
    {
-       
       
       public function ItemCard_Comparison_96()
       {
@@ -19,3 +18,4 @@ package ExamineMenu_fla
       }
    }
 }
+

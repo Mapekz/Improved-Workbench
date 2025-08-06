@@ -6,7 +6,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol101")]
    public dynamic class DifferenceText_108 extends MovieClip
    {
-       
       
       public var Difference_tf:TextField;
       
@@ -27,3 +26,4 @@ package ExamineMenu_fla
       }
    }
 }
+

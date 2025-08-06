@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol57")]
    public dynamic class ModSelectedIcon_139 extends MovieClip
    {
-       
       
       public function ModSelectedIcon_139()
       {
@@ -19,3 +18,4 @@ package ExamineMenu_fla
       }
    }
 }
+

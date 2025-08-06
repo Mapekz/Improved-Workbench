@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol85")]
    public dynamic class ItemLock_Icon_133 extends MovieClip
    {
-       
       
       public function ItemLock_Icon_133()
       {
@@ -24,3 +23,4 @@ package ExamineMenu_fla
       }
    }
 }
+

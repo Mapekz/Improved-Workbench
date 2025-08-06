@@ -5,7 +5,6 @@ package Shared
    
    public class UpdateEventList extends BSScrollingList
    {
-       
       
       public function UpdateEventList()
       {
@@ -39,3 +38,4 @@ package Shared
       }
    }
 }
+

@@ -8,7 +8,6 @@ package
    
    public class ConfirmPanelComponentEntry extends MovieClip
    {
-       
       
       public var textField:TextField;
       
@@ -116,3 +115,4 @@ package
       }
    }
 }
+

@@ -28,7 +28,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol431")]
    public dynamic class ModsBase_26 extends MovieClip
    {
-       
       
       public var ModSlotList_mc:CurrentModList;
       
@@ -64,3 +63,4 @@ package ExamineMenu_fla
       }
    }
 }
+

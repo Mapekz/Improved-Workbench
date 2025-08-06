@@ -9,7 +9,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol86")]
    public class InvListEntry extends ItemListEntryBase
    {
-       
       
       public var EquipIconInstance:MovieClip;
       
@@ -114,3 +113,4 @@ package
       }
    }
 }
+

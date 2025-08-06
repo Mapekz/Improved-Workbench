@@ -7,7 +7,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol308")]
    public class CurrentModListEntry extends BSScrollingListEntry
    {
-       
       
       public function CurrentModListEntry()
       {
@@ -17,3 +16,4 @@ package
       }
    }
 }
+

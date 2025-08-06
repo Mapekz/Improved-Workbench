@@ -7,7 +7,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol59")]
    public class ModPartList extends BSScrollingList
    {
-       
       
       public function ModPartList()
       {
@@ -49,3 +48,4 @@ package
       }
    }
 }
+

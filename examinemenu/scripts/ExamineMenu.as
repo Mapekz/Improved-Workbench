@@ -40,7 +40,6 @@ package
       public static const EVENT_UPDATE_PIPBOY_INV_SELECTION:String = "Pipboy::UpdateInventorySelection";
       
       public static const EVENT_IS_CRAFTING:String = "Crafting::IsCrafting";
-       
       
       public var BGSCodeObj:Object;
       
@@ -90,21 +89,21 @@ package
       
       private var m_ConfirmMenuOpen:Boolean = false;
       
-      public var InventoryListObject:ListInfoObject;
+      public var InventoryListObject:ListInfoObject = new ListInfoObject();
       
-      public var ModSlotListObject:ListInfoObject;
+      public var ModSlotListObject:ListInfoObject = new ListInfoObject();
       
-      public var ComponentsListObject:ListInfoObject;
+      public var ComponentsListObject:ListInfoObject = new ListInfoObject();
       
-      public var ModListObject:ListInfoObject;
+      public var ModListObject:ListInfoObject = new ListInfoObject();
       
-      public var MiscItemListObject:ListInfoObject;
+      public var MiscItemListObject:ListInfoObject = new ListInfoObject();
       
-      public var RequirementsListObject:ListInfoObject;
+      public var RequirementsListObject:ListInfoObject = new ListInfoObject();
       
-      public var CurrentModsListObject:ListInfoObject;
+      public var CurrentModsListObject:ListInfoObject = new ListInfoObject();
       
-      public var ItemLevelListObject:ListInfoObject;
+      public var ItemLevelListObject:ListInfoObject = new ListInfoObject();
       
       private var InspectModeButtons:Vector.<BSButtonHintData>;
       
@@ -312,19 +311,10 @@ package
       
       private var errorMessage:TextField;
       
-      public var __SFCodeObj:Object;
+      public var __SFCodeObj:Object = new Object();
       
       public function ExamineMenu()
       {
-         this.__SFCodeObj = new Object();
-         this.InventoryListObject = new ListInfoObject();
-         this.ModSlotListObject = new ListInfoObject();
-         this.ComponentsListObject = new ListInfoObject();
-         this.ModListObject = new ListInfoObject();
-         this.MiscItemListObject = new ListInfoObject();
-         this.RequirementsListObject = new ListInfoObject();
-         this.CurrentModsListObject = new ListInfoObject();
-         this.ItemLevelListObject = new ListInfoObject();
          this.displayFormat();
          this.TakeButton = new BSButtonHintData("$TAKE","Space","PSN_A","Xenon_A",1,this.onTakeButton);
          this.RenameButton = new BSButtonHintData("$RENAME","V","PSN_Select","Xenon_Select",1,this.onRename);
@@ -820,7 +810,7 @@ package
                isWorkbench = param1.data.isWorkbench;
                repairKitCount = param1.data.repairKitCount;
                RepairKitsEnabled = param1.data.repairKitsEnabled;
-               RenameButton.ButtonText = !!allowClearName ? "$CLEARNAME" : "$RENAME";
+               RenameButton.ButtonText = allowClearName ? "$CLEARNAME" : "$RENAME";
             }
          });
          BSUIDataManager.Subscribe("HUDModeData",function(param1:FromClientDataEvent):void
@@ -1161,7 +1151,7 @@ package
             this.BGSCodeObj.SwitchMod(this.ModListObject.selectedIndex,_loc1_);
             this.AutoBuild.ButtonEnabled = this.GetBuildable();
             this.AutoBuild.ButtonVisible = true;
-            this.AutoBuild.ButtonText = !!this.GetLooseModAvailable() ? "$ATTACH MOD" : "$BUILD";
+            this.AutoBuild.ButtonText = this.GetLooseModAvailable() ? "$ATTACH MOD" : "$BUILD";
             if(this.ChooseComponents != null && this.ModListObject.active && this.ModListObject.selectedIndex >= 0)
             {
                if(this.eMode == this.MOD_MODE && Boolean(this.ModListObject.entryList[this.ModListObject.selectedIndex].hasLooseMod))
@@ -1497,7 +1487,7 @@ package
                   this.ToggleEquipButton.ButtonEnabled = this._allowEquip;
                   if(this._allowEquip)
                   {
-                     this.ToggleEquipButton.ButtonText = !!this.BGSCodeObj.IsSelectedItemEquipped() ? "$UNEQUIP" : "$EQUIP";
+                     this.ToggleEquipButton.ButtonText = this.BGSCodeObj.IsSelectedItemEquipped() ? "$UNEQUIP" : "$EQUIP";
                   }
                   if(this._showScrapButton)
                   {
@@ -1552,7 +1542,7 @@ package
                else
                {
                   this.AutoBuild.ButtonEnabled = this.GetBuildable();
-                  this.AutoBuild.ButtonText = !!this.GetLooseModAvailable() ? "$ATTACH MOD" : "$BUILD";
+                  this.AutoBuild.ButtonText = this.GetLooseModAvailable() ? "$ATTACH MOD" : "$BUILD";
                }
                this.TagButton.ButtonEnabled = this.BGSCodeObj.ShouldShowTagForSearchButton();
                this.AlternateButton.ButtonVisible = this.strAlternateButtonText.length > 0;
@@ -2563,3 +2553,4 @@ package
       }
    }
 }
+

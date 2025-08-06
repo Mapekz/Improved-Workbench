@@ -6,7 +6,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol44")]
    public class ItemSelectListEntry extends BSScrollingListFadeEntry
    {
-       
       
       public var count:TextField;
       
@@ -32,3 +31,4 @@ package
       }
    }
 }
+

@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol412")]
    public dynamic class CenterShadedBG_6 extends MovieClip
    {
-       
       
       public function CenterShadedBG_6()
       {
@@ -39,3 +38,4 @@ package ExamineMenu_fla
       }
    }
 }
+

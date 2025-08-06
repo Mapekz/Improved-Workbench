@@ -9,15 +9,13 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol48")]
    public class ItemSelectList extends BSScrollingList
    {
-       
       
       public var FilterCount:uint = 0;
       
-      public var CategoryNameList:Array;
+      public var CategoryNameList:Array = new Array();
       
       public function ItemSelectList()
       {
-         this.CategoryNameList = new Array();
          super();
          addEventListener(KeyboardEvent.KEY_DOWN,onKeyDown);
          addEventListener(BSScrollingList.LIST_ITEMS_CREATED,this.onListCreate);
@@ -73,3 +71,4 @@ package
       }
    }
 }
+

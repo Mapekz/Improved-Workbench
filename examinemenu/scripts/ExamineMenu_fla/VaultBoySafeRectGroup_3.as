@@ -28,7 +28,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol401")]
    public dynamic class VaultBoySafeRectGroup_3 extends MovieClip
    {
-       
       
       public var FeaturedItemVaultboy_mc:FeaturedItemVaultboy;
       
@@ -73,3 +72,4 @@ package ExamineMenu_fla
       }
    }
 }
+

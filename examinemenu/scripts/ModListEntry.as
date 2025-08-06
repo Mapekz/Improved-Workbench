@@ -8,7 +8,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol24")]
    public class ModListEntry extends ItemListEntryBase
    {
-       
       
       public var count:TextField;
       
@@ -90,3 +89,4 @@ package
       }
    }
 }
+

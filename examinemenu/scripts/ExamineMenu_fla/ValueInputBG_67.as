@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol338")]
    public dynamic class ValueInputBG_67 extends MovieClip
    {
-       
       
       public function ValueInputBG_67()
       {
@@ -24,3 +23,4 @@ package ExamineMenu_fla
       }
    }
 }
+

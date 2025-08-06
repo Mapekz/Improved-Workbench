@@ -7,7 +7,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol33")]
    public class RequirementList extends BSScrollingList
    {
-       
       
       public function RequirementList()
       {
@@ -47,3 +46,4 @@ package
       }
    }
 }
+

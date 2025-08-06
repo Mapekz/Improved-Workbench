@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol150")]
    public dynamic class MeterClip_104 extends MovieClip
    {
-       
       
       public function MeterClip_104()
       {
@@ -19,3 +18,4 @@ package ExamineMenu_fla
       }
    }
 }
+

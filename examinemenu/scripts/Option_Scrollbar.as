@@ -15,7 +15,6 @@ package
       public static const VALUE_CHANGE:String = "Option_Scrollbar::VALUE_CHANGE";
       
       public static const VALUE_CHANGE_FAILED:String = "Option_Scrollbar::VALUE_CHANGE_FAILED";
-       
       
       public var Track_mc:MovieClip;
       
@@ -245,3 +244,4 @@ package
       }
    }
 }
+

@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol348")]
    public dynamic class modalSetQuantity extends QuantityMenu
    {
-       
       
       public function modalSetQuantity()
       {
@@ -29,3 +28,4 @@ package
       }
    }
 }
+

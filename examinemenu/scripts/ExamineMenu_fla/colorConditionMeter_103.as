@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol250")]
    public dynamic class colorConditionMeter_103 extends MovieClip
    {
-       
       
       public var MeterClip_mc:MovieClip;
       
@@ -21,3 +20,4 @@ package ExamineMenu_fla
       }
    }
 }
+

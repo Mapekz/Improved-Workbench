@@ -29,7 +29,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol397")]
    public dynamic class FeaturedItemVaultboy extends VaultBoyImageLoader
    {
-       
       
       public function FeaturedItemVaultboy()
       {
@@ -65,3 +64,4 @@ package
       }
    }
 }
+

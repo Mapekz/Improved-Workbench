@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol138")]
    public dynamic class DamageIcons_109 extends MovieClip
    {
-       
       
       public function DamageIcons_109()
       {
@@ -19,3 +18,4 @@ package ExamineMenu_fla
       }
    }
 }
+

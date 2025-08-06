@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol49")]
    public dynamic class PerkLoaderClip extends SWFLoaderClip
    {
-       
       
       public function PerkLoaderClip()
       {
@@ -13,3 +12,4 @@ package
       }
    }
 }
+

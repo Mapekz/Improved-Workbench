@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol112")]
    public dynamic class DifferenceSymbol_82 extends MovieClip
    {
-       
       
       public function DifferenceSymbol_82()
       {
@@ -34,3 +33,4 @@ package ExamineMenu_fla
       }
    }
 }
+

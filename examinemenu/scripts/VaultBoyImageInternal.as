@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol1")]
    public dynamic class VaultBoyImageInternal extends BSUIComponent
    {
-       
       
       public function VaultBoyImageInternal()
       {
@@ -13,3 +12,4 @@ package
       }
    }
 }
+

@@ -6,7 +6,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol415")]
    public dynamic class ModDescriptionBase_9 extends MovieClip
    {
-       
       
       public var DynamicModDescription_mc:DynamicModDescriptionBase;
       
@@ -29,3 +28,4 @@ package ExamineMenu_fla
       }
    }
 }
+

@@ -6,7 +6,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol386")]
    public class RightHandList extends DummyEntryList
    {
-       
       
       public function RightHandList()
       {
@@ -41,3 +40,4 @@ package
       }
    }
 }
+

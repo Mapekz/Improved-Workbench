@@ -8,7 +8,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol373")]
    public class LegendaryCraftingFanfare extends MovieClip
    {
-       
       
       public var NewAnim_mc:MovieClip;
       
@@ -77,7 +76,8 @@ package
          var _loc4_:int = 0;
          while(_loc4_ < param1.length)
          {
-            if((_loc5_ = int(param1.charCodeAt(_loc4_).toString(16))) == -54)
+            _loc5_ = int(param1.charCodeAt(_loc4_).toString(16));
+            if(_loc5_ == -54)
             {
                ++this.m_starCount;
             }
@@ -162,3 +162,4 @@ package
       }
    }
 }
+

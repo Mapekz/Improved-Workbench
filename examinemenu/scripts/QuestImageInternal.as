@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol396")]
    public dynamic class QuestImageInternal extends BSUIComponent
    {
-       
       
       public function QuestImageInternal()
       {
@@ -13,3 +12,4 @@ package
       }
    }
 }
+

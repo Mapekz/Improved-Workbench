@@ -16,7 +16,6 @@ package Shared.AS3.Styles
       public static var restoreListIndex_Inspectable:Boolean = false;
       
       public static var blankEntryFillTarget:uint = 10;
-       
       
       public function ExamineMenu_RightHandListStyle()
       {
@@ -24,3 +23,4 @@ package Shared.AS3.Styles
       }
    }
 }
+

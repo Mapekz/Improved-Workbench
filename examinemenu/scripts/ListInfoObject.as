@@ -11,11 +11,10 @@ package
       public static const FILTERS_DUPLICATE_CHANGE:String = "ListInfoObject::filterDuplicateChange";
       
       public static const ENTRY_LIST_CHANGE:String = "ListInfoObject::entryListChange";
-       
       
-      private var _filterer:Object;
+      private var _filterer:Object = new Object();
       
-      private var _entryList:Array;
+      private var _entryList:Array = new Array();
       
       private var _selectedIndex:int = 0;
       
@@ -33,8 +32,6 @@ package
       
       public function ListInfoObject()
       {
-         this._filterer = new Object();
-         this._entryList = new Array();
          super();
       }
       
@@ -183,3 +180,4 @@ package
       }
    }
 }
+

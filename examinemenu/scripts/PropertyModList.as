@@ -6,7 +6,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol13")]
    public class PropertyModList extends BSScrollingList
    {
-       
       
       public var comparisonArray:Array;
       
@@ -40,3 +39,4 @@ package
       }
    }
 }
+

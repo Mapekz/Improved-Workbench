@@ -3,7 +3,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol264")]
    public class ItemCard_FireModeEntry extends ItemCard_Entry
    {
-       
       
       public function ItemCard_FireModeEntry()
       {
@@ -31,3 +30,4 @@ package
       }
    }
 }
+

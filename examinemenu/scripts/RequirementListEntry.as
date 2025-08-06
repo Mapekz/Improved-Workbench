@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol28")]
    public class RequirementListEntry extends BSScrollingListFadeEntry
    {
-       
       
       public function RequirementListEntry()
       {
@@ -27,3 +26,4 @@ package
       }
    }
 }
+

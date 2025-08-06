@@ -5,7 +5,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol80")]
    public dynamic class SetBonusIcon_131 extends MovieClip
    {
-       
       
       public function SetBonusIcon_131()
       {
@@ -24,3 +23,4 @@ package ExamineMenu_fla
       }
    }
 }
+

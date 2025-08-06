@@ -6,7 +6,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol372")]
    public dynamic class NEWAnim_49 extends MovieClip
    {
-       
       
       public function NEWAnim_49()
       {
@@ -30,3 +29,4 @@ package ExamineMenu_fla
       }
    }
 }
+

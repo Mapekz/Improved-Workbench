@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol282")]
    public dynamic class WS_icon_ResourceAV_Scavenge extends MovieClip
    {
-       
       
       public function WS_icon_ResourceAV_Scavenge()
       {
@@ -13,3 +12,4 @@ package
       }
    }
 }
+

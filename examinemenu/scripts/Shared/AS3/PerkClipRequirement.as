@@ -7,7 +7,6 @@ package Shared.AS3
    [Embed(source="/_assets/assets.swf", symbol="symbol381")]
    public class PerkClipRequirement extends PerkClipSmall
    {
-       
       
       public var Rank_mc:MovieClip;
       
@@ -28,3 +27,4 @@ package Shared.AS3
       }
    }
 }
+

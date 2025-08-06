@@ -9,7 +9,6 @@ package
    {
       
       public static var AdvancedModDescMode:Boolean = false;
-       
       
       public var Arrow_mc:MovieClip;
       
@@ -54,8 +53,8 @@ package
          {
             _loc3_ = param1.value;
             _loc3_ = parseFloat(_loc3_) > 0 ? "+" + _loc3_ : _loc3_;
-            _loc3_ = !!param1.isPercentage ? _loc3_ + "%" : _loc3_;
-            this.ValueText_mc.gotoAndStop(!!param1.isPositive ? "blue" : "red");
+            _loc3_ = param1.isPercentage ? _loc3_ + "%" : _loc3_;
+            this.ValueText_mc.gotoAndStop(param1.isPositive ? "blue" : "red");
             this.ValueText_mc.ValueText_tf.text = _loc3_;
             this.ValueText_mc.ValueText_tf.width = this.ValueText_mc.ValueText_tf.textWidth + this.VALUE_TEXT_SPACING;
             this.StatText_tf.x = this.ValueText_mc.ValueText_tf.textWidth + this.NUMBERS_VALUE_SPACING;
@@ -65,11 +64,11 @@ package
          {
             if(parseFloat(param1.value) > 0)
             {
-               this.Arrow_mc.gotoAndStop(!!param1.isPositive ? "GoodIncrease" : "BadIncrease");
+               this.Arrow_mc.gotoAndStop(param1.isPositive ? "GoodIncrease" : "BadIncrease");
             }
             else
             {
-               this.Arrow_mc.gotoAndStop(!!param1.isPositive ? "GoodDecrease" : "BadDecrease");
+               this.Arrow_mc.gotoAndStop(param1.isPositive ? "GoodDecrease" : "BadDecrease");
             }
             Sizer_mc.width = this.Arrow_mc.width + this.StatText_tf.textWidth + this.SYMBOLS_MODE_SPACING;
          }
@@ -91,3 +90,4 @@ package
       }
    }
 }
+

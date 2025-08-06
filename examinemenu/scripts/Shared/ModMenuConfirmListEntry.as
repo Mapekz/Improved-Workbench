@@ -6,7 +6,6 @@ package Shared
    [Embed(source="/_assets/assets.swf", symbol="symbol316")]
    public dynamic class ModMenuConfirmListEntry extends MovieClip
    {
-       
       
       public var border:MovieClip;
       
@@ -18,3 +17,4 @@ package Shared
       }
    }
 }
+

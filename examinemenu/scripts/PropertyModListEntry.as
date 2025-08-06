@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol12")]
    public class PropertyModListEntry extends BSScrollingListEntry
    {
-       
       
       public function PropertyModListEntry()
       {
@@ -19,3 +18,4 @@ package
       }
    }
 }
+

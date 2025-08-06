@@ -6,7 +6,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol360")]
    public dynamic class Attribute4_45 extends MovieClip
    {
-       
       
       public var AttributeText_mc:MovieClip;
       
@@ -28,3 +27,4 @@ package ExamineMenu_fla
       }
    }
 }
+

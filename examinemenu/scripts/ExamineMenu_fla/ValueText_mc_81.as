@@ -6,7 +6,6 @@ package ExamineMenu_fla
    [Embed(source="/_assets/assets.swf", symbol="symbol301")]
    public dynamic class ValueText_mc_81 extends MovieClip
    {
-       
       
       public var ValueText_tf:TextField;
       
@@ -27,3 +26,4 @@ package ExamineMenu_fla
       }
    }
 }
+

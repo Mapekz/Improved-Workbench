@@ -5,7 +5,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol384")]
    public dynamic class CurrentModList extends BSScrollingList
    {
-       
       
       public function CurrentModList()
       {
@@ -13,3 +12,4 @@ package
       }
    }
 }
+

@@ -3,7 +3,6 @@ package
    [Embed(source="/_assets/assets.swf", symbol="symbol259")]
    public class ItemCard_HideDifferenceEntry extends ItemCard_Entry
    {
-       
       
       public function ItemCard_HideDifferenceEntry()
       {
@@ -36,3 +35,4 @@ package
       }
    }
 }
+
