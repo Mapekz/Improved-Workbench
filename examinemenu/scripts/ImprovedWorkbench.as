@@ -22,13 +22,13 @@ package
       
       private static const MAX_CRAFTABLE:uint = 255;
       
-      public static const VERSION:String = "1.7.2";
+      public static const VERSION:String = "1.7.3";
       
       public static const MOD_NAME:String = "ImprovedWorkbench";
       
       public static const CONFIG_FILE_LOCATION:String = "../ImprovedWorkbenchConfig.json";
       
-      public static var LEGENDARY_LOAD_FILE_LOCATION:String = "../itemsmod.ini";
+      public static var LEGENDARY_LOAD_FILE_LOCATION:String = "../LegendaryMods.ini";
       
       public static const LEGENDARY_MOD_LOCALIZED:Array = ["LEGENDARY MOD","MOD LÉGENDAIRE","MÓDULO LEGENDARIO","LEGENDÄRE","MODIFICA LEGGENDARIA","LEGENDARNA MODYFIKACJA","MOD LENDÁRIO","ЛЕГЕНДАРНЫЙ МОДУЛЬ","Легендарный модуль","レジェンダリーモジュール","전설적인 개조","传奇改装件","傳奇改造配件"];
       
@@ -1062,7 +1062,7 @@ package
          {
             if(this.isSfeDefined())
             {
-               this._examineMenu.__SFCodeObj.call("writeItemsModFile",data);
+               this._examineMenu.__SFCodeObj.call("writeLegendaryModsFile",data);
                this._examineMenu.displayError("Done saving Legendary mods!");
             }
             else
@@ -1098,9 +1098,10 @@ package
             {
                var data:Object;
                var decoder:JsonDecoderAsync;
+               var regex:RegExp;
                try
                {
-                  if(loader.data.indexOf("\"modName\":\"" + MOD_NAME + "\"") != -1)
+                  if(loader.data.search(/\"modName\":\s*\"ImprovedWorkbench\"/) != -1)
                   {
                      decoder = new JsonDecoderAsync(loader.data,false);
                      if(!decoder.process())
@@ -1114,12 +1115,12 @@ package
                   }
                   else
                   {
-                     _examineMenu.displayError("Existing itemsmod not loaded, invalid extractor mod name");
+                     _examineMenu.displayError("Existing LegendaryMods not loaded, invalid extractor mod name");
                   }
                }
                catch(e:Error)
                {
-                  _examineMenu.displayError("Error parsing existing itemsmod file " + e);
+                  _examineMenu.displayError("Error parsing existing LegendaryMods file " + e);
                }
                if(_legendaryModsFromIni)
                {
@@ -1137,7 +1138,7 @@ package
          }
          catch(e:Error)
          {
-            _examineMenu.displayError("Error loading existing itemsmod file: " + e.getStackTrace());
+            _examineMenu.displayError("Error loading existing LegendaryMods file: " + e.getStackTrace());
          }
       }
    }
