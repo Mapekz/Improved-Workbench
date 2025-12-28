@@ -22,7 +22,7 @@ package
       
       private static const MAX_CRAFTABLE:uint = 255;
       
-      public static const VERSION:String = "1.7.3";
+      public static const VERSION:String = "1.7.4";
       
       public static const MOD_NAME:String = "ImprovedWorkbench";
       
@@ -59,8 +59,9 @@ package
       public var ShowInventoryItemCount:Boolean = true;
       
       private var hasScannedLegendaryMods:* = false;
-
+      
       private var legendaryModKeepList:* = [];
+      
       private var legendaryModBlockList:* = [];
       
       private var timer:Timer;
@@ -264,32 +265,35 @@ package
             ShowMessage("Error loading config: " + e);
          }
       }
-
+      
       private function initLegendaryModTracking() : *
       {
          if(!_config || !_config.legendaryModTrackingConfig || !_config.legendaryModTrackingConfig.enabled)
          {
             return;
          }
-
          if(_config.legendaryModTrackingConfig.keepList)
          {
-            this.legendaryModKeepList = _config.legendaryModTrackingConfig.keepList.map(function(mod) { return mod.toLowerCase() });
+            this.legendaryModKeepList = _config.legendaryModTrackingConfig.keepList.map(function(mod:*):*
+            {
+               return mod.toLowerCase();
+            });
          }
          else
          {
             this.legendaryModKeepList = [];
          }
-
          if(_config.legendaryModTrackingConfig.blockList)
          {
-            this.legendaryModBlockList = _config.legendaryModTrackingConfig.blockList.map(function(mod) { return mod.toLowerCase() });
+            this.legendaryModBlockList = _config.legendaryModTrackingConfig.blockList.map(function(mod:*):*
+            {
+               return mod.toLowerCase();
+            });
          }
          else
          {
             this.legendaryModBlockList = [];
          }
-
          setTimeout(loadExistingItemsmodIni,25);
          setTimeout(writeLegendaryModsToFile,100);
       }
@@ -303,7 +307,7 @@ package
             ExamineMenuMode = event.data.mode;
             if(ExamineMenuMode == "crafting")
             {
-               this.initLegendaryModTracking();
+               initLegendaryModTracking();
             }
             else if(ExamineMenuMode == "inspect")
             {
@@ -947,7 +951,7 @@ package
          {
             currentMod = allLegendaryMods[j];
             currentMod.isLearned = Boolean(learnedLegendaryModNamesDict[currentMod.fullName]);
-            currentMod.isKept = this.legendaryModKeepList.contains(currentMod.fullName.toLowerCase());
+            currentMod.isKept = this.legendaryModKeepList.indexOf(currentMod.fullName.toLowerCase()) != -1;
             j++;
          }
          var characterName:* = BSUIDataManager.GetDataFromClient("CharacterNameData").data.characterName;
@@ -1017,12 +1021,10 @@ package
                      var legendaryModDesc:* = {};
                      var descParts:* = legendaryMod.description.split("\n");
                      var k:* = 0;
-
-                     if(this.legendaryModBlockList.contains(legendaryModName.toLowerCase()))
+                     if(this.legendaryModBlockList.indexOf(legendaryModName.toLowerCase()) != -1)
                      {
                         continue;
                      }
-
                      while(k < descParts.length)
                      {
                         var part:* = descParts[k].replace(LEGENDARY_MOD_CURRENTLY_REGEX,"").replace(/^\s+|\s+$/g,"");
