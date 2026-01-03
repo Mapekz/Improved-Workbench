@@ -4,11 +4,38 @@
 	"enableExamineRepairAll": true,
 	"enableQuickRepairButton": true,
 	"enableImprovedQuantityMenu": true,
-	"enableLegendaryModTracking": false,
 	"defaultCraftAmount": 1,
 	"showInventoryItemCount": true,
 	"customRepairKitRepairHotkey": 0,
 	"customWorkbenchRepairHotkey": 0,
+	
+	"legendaryModTrackingConfig": {
+		"enabled": true,
+		"keepList": [
+			"Adrenal",
+			"Feral's",
+			"Lucid",
+			"Sniper's",
+			"Elementalist",
+			"Fierce",
+			"Pain Killer",
+			"Pick Pocketer's",
+			"Rushing",
+			"Active",
+			"Barbarian",
+			"Glowing",
+			"Healthy",
+			"Reflex"
+		],
+		"blockList": [
+			"Jagged",
+			"Recollecting",
+			"Insane",
+			"Mad Scientist's",
+			"Self-Repairing",
+			"Savage"
+		]
+	},
 	"autoUseRepairKit": {
 		"enabled": false,
 		"conditionUnder": 15,
